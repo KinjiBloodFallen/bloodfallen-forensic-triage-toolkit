@@ -1,7 +1,7 @@
 # ============================================================================================
 # KinjiBloodFallen Forensic Triage Toolkit
-# BloodFallen Basic Malware Check - Version 5.0 Community Preview
-# coded with AI | Defensive Inspection Tool
+# BloodFallen Basic Malware Check - Version 1.0.0
+# coded with the help of AI | Defensive Inspection Tool
 #
 # SAFETY:
 # - This tool is inspection/evidence collection only.
@@ -139,7 +139,7 @@ function Write-Header {
     Write-Host "        \/        \/       \/         \/        \/     \/        \/               \/     \/ " -ForegroundColor Red
     Write-Host ""
     Write-Host "                 KinjiBloodFallen Forensic Triage Toolkit" -ForegroundColor Yellow
-    Write-Host "                 Basic Malware Check - Version 5.0 Community Preview" -ForegroundColor Yellow
+    Write-Host "                 Basic Malware Check - Version 1.0.0" -ForegroundColor Yellow
     Write-Host "                 coded with AI | Defensive Inspection Tool" -ForegroundColor DarkGray
     Write-Host "============================================================================================" -ForegroundColor Red
     Write-Host "Logs Folder: $BaseDir" -ForegroundColor Cyan
