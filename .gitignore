@@ -1,0 +1,9 @@
+# Generated at runtime - never commit user logs or saved API keys
+BloodFallen_Logs/
+vt_config.json
+*.zip
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.swp
