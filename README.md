@@ -1,5 +1,7 @@
 # BloodFallen Forensic Triage Toolkit
 
+**Version 1.0.0** — first public release.
+
 A read-only, evidence-collection PowerShell tool for basic malware/persistence inspection on Windows. Built for local and community use — it does **not** delete files, kill processes, disable services, remove scheduled tasks, modify the registry, read cookies/passwords, or send your files anywhere.
 
 > **Disclaimer:** This tool uses heuristic pattern-matching (suspicious paths, unsigned binaries, common LOLBin abuse patterns, etc.). A `[HIGH]` or `[MEDIUM]` result is a signal to investigate further — **not proof of infection.** Likewise, a clean report is not a guarantee your system is malware-free. Use this alongside, not instead of, a real antivirus/EDR product.
