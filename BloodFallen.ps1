@@ -1,7 +1,7 @@
 # ============================================================================================
 # KinjiBloodFallen Forensic Triage Toolkit
 # BloodFallen Basic Malware Check - Version 1.0.0
-# coded with the help of AI | Defensive Inspection Tool
+# coded with AI | Defensive Inspection Tool
 #
 # SAFETY:
 # - This tool is inspection/evidence collection only.
@@ -541,7 +541,8 @@ function Save-AndDisplayResults {
         Write-Status $item.Severity $item.Reason
 
         foreach ($property in $Properties) {
-            Write-Host ("{0}: {1}" -f $property, $item.$property)
+            $value = if ($item.PSObject.Properties.Name -contains $property) { $item.$property } else { "N/A" }
+            Write-Host ("{0}: {1}" -f $property, $value)
         }
 
         Write-Host "--------------------------------------------------------------------------------------------" -ForegroundColor DarkGray
@@ -1093,11 +1094,17 @@ function Check-WMIPersistence {
             }
 
             $items += [PSCustomObject]@{
-                Severity = $severity
-                Reason   = $reason
-                Type     = "Event Filter"
-                Name     = $_.Name
-                Details  = $_.Query
+                Severity        = $severity
+                Reason          = $reason
+                Type            = "Event Filter"
+                Name            = $_.Name
+                Details         = $_.Query
+                TargetFile      = "N/A"
+                FileResolved    = "N/A"
+                FileExists      = "N/A"
+                SignatureStatus = "N/A"
+                Publisher       = "N/A"
+                SHA256          = "N/A"
             }
         }
 
@@ -1123,11 +1130,17 @@ function Check-WMIPersistence {
 
         Get-CimInstance -Namespace root\subscription -ClassName __FilterToConsumerBinding -ErrorAction Stop | ForEach-Object {
             $items += [PSCustomObject]@{
-                Severity = "[INFO]"
-                Reason   = "WMI Filter-to-Consumer binding found. Review together with filters and consumers."
-                Type     = "FilterToConsumerBinding"
-                Name     = "Binding"
-                Details  = "Filter: $($_.Filter) | Consumer: $($_.Consumer)"
+                Severity        = "[INFO]"
+                Reason          = "WMI Filter-to-Consumer binding found. Review together with filters and consumers."
+                Type            = "FilterToConsumerBinding"
+                Name            = "Binding"
+                Details         = "Filter: $($_.Filter) | Consumer: $($_.Consumer)"
+                TargetFile      = "N/A"
+                FileResolved    = "N/A"
+                FileExists      = "N/A"
+                SignatureStatus = "N/A"
+                Publisher       = "N/A"
+                SHA256          = "N/A"
             }
         }
     }
